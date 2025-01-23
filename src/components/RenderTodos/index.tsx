@@ -13,23 +13,27 @@ const RenderTodos = ({ todos, setTodos, filter }: RenderTodosProps) => {
   const filteredTodos = todos.filter((todo) => {
     if (filter === "completed") return todo.completed;
     if (filter === "uncompleted") return !todo.completed;
-    return todo; //all filter
+    // return todo; //all filter
+    return true;
   });
 
+  //ToDoni o'chirish
   const handleDelete = (id: number) => {
-    const clone = [...todos];
-    const target = clone.findIndex((item) => item.id === id);
-    clone.splice(target, 1);
-    setTodos(clone);
+    const updatedTodos = todos.filter((todo) => todo.id !== id);
+    setTodos(updatedTodos);
+    localStorage.setItem("todos", JSON.stringify(updatedTodos));
   };
 
+  //yangi kod
   const handleComplete = (id: number) => {
-    setTodos(
-      todos.map((t) => {
-        if (t.id === id) t.completed = !t.completed;
-        return t;
-      }),
-    );
+    const updatedTodos = todos.map((todo) => {
+      if (todo.id == id) {
+        return { ...todo, completed: !todo.completed };
+      }
+      return todo;
+    });
+    setTodos(updatedTodos);
+    localStorage.setItem("todos", JSON.stringify(updatedTodos));
   };
 
   return (
