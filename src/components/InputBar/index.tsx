@@ -3,7 +3,6 @@ import { TTodos } from "../../types/todo";
 import { FilterBtn, TFilter } from "../";
 import { SetState } from "../../types";
 import "./style.css";
-//o'zgardi
 
 interface InputBarProps {
   todos: TTodos[];
@@ -14,7 +13,6 @@ interface InputBarProps {
 const InputBar = ({ todos, setTodos, setFilter }: InputBarProps) => {
   const [title, setTitle] = useState("");
 
-  // Sahifa yuklanganda Local Storage dan ma'lumotlarni o'qing
   useEffect(() => {
     const storedTodos = localStorage.getItem("todos");
     if (storedTodos) {
@@ -40,7 +38,6 @@ const InputBar = ({ todos, setTodos, setFilter }: InputBarProps) => {
     document.addEventListener("keydown", handleKeyDown);
 
     return () => {
-      //Hodisani tozalash
       document.removeEventListener("keydown", handleKeyDown);
     };
     //eslint-disable-next-line

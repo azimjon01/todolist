@@ -1,6 +1,4 @@
-/* Mobile uchun */
 @media (max-width: 640px) {
-    /* Kichik ekranlar uchun stil */
     .container {
         @apply flex-col;
     }
