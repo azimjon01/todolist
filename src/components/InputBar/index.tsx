@@ -3,7 +3,6 @@ import { TTodos } from "../../types/todo";
 import { FilterBtn, TFilter } from "../";
 import { SetState } from "../../types";
 import "./style.css";
-//o'zgardi
 
 interface InputBarProps {
   todos: TTodos[];
